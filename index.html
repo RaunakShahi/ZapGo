@@ -35,6 +35,8 @@
                         <div class="flex space-x-2">
                             <input type="number" id="initialCharge" placeholder="Initial Charge %" class="w-1/2 p-2 border rounded-md">
                             <input type="number" id="finalCharge" placeholder="Final Charge %" class="w-1/2 p-2 border rounded-md">
+                            <input type="number" id="range" placeholder="Range (in km)" class="w-1/2 p-2 border rounded-md">
+                            <input type="time" id="startTime" placeholder="Start Time" class="w-1/2 p-2 border rounded-md">
                         </div>
                         <button id="planRoute" class="w-full p-2 bg-black text-white rounded-md hover:bg-gray-800">Plan Route</button>
                     </div>
@@ -66,7 +68,7 @@
                 </form>
             </div>
         </div>
-
+        
         <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div class="bg-white p-6 rounded-lg w-96">
                 <h2 class="text-xl font-bold mb-4">Payment</h2>
