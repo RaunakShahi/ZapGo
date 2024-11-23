@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EV Route Planner</title>
+    <title>ZapGo</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl17QnxpqUbvaRIGM8veUb2aukTQFbB4U&libraries=places"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://unpkg.com/web3@1.6.0/dist/web3.min.js"></script>
@@ -16,7 +16,7 @@
         <!-- Navigation -->
         <nav class="bg-black text-white p-4">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-xl font-bold">EV Route Planner</h1>
+                <h1 class="text-xl font-bold">ZapGo</h1>
                 <div class="flex space-x-4">
                     <button id="loginBtn" class="px-4 py-2 rounded-md bg-[#1fb800] hover:bg-[#198f00]">Login</button>
                     <button id="signupBtn" class="px-4 py-2 rounded-md border border-[#1fb800] hover:bg-[#1fb800]">Sign Up</button>
@@ -32,12 +32,22 @@
                     <div class="space-y-2">
                         <input type="text" id="start" placeholder="Starting Point" class="w-full p-2 border rounded-md">
                         <input type="text" id="end" placeholder="Destination" class="w-full p-2 border rounded-md">
+                        
+                        <!-- Row for Initial and Final Charge -->
                         <div class="flex space-x-2">
                             <input type="number" id="initialCharge" placeholder="Initial Charge %" class="w-1/2 p-2 border rounded-md">
                             <input type="number" id="finalCharge" placeholder="Final Charge %" class="w-1/2 p-2 border rounded-md">
-                            <input type="number" id="range" placeholder="Range (in km)" class="w-1/2 p-2 border rounded-md">
-                            <input type="time" id="startTime" placeholder="Start Time" class="w-1/2 p-2 border rounded-md">
                         </div>
+
+                        <!-- Row for Range and Start Time -->
+                        <div class="space-y-2">
+                            <input type="number" id="range" placeholder="Range (in km)" class="w-full p-2 border rounded-md">
+                            <div class="flex flex-col">
+                                <label for="startTime" class="text-sm text-gray-600">Journey Start Time:</label>
+                                <input type="time" id="startTime" class="w-full p-2 border rounded-md">
+                            </div>
+                        </div>
+
                         <button id="planRoute" class="w-full p-2 bg-black text-white rounded-md hover:bg-gray-800">Plan Route</button>
                     </div>
 
