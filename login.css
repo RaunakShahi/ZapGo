@@ -1,0 +1,58 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.primary-btn {
+    background-color: #1fb800;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+    background-color: #198f00;
+}
+
+.custom-shadow {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.or-divider {
+    text-align: center;
+    color: gray;
+    font-size: 0.875rem;
+    position: relative;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+}
+
+.or-divider::before {
+    left: 0;
+}
+
+.or-divider::after {
+    right: 0;
+}
+
+#loadingSpinner {
+    display: none;
+}
+
+.active-tab {
+    background-color: #1fb800;
+    color: white;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
