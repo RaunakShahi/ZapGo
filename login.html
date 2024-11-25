@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EV Route Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <header class="header">
+        <div class="logo">ZapGo</div>
+    </header>
+    <div class="w-full max-w-md p-8 bg-white rounded-lg custom-shadow">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-black mb-2">ZapGo</h1>
+            <p class="text-gray-600">Providing solutions to make journies easier</p>
+        </div>
+
+        <!-- Google Sign In -->
+        <div class="mb-6">
+            <button id="googleSignIn" class="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-md hover:bg-gray-50 transition duration-200 flex items-center justify-center gap-2 mb-4">
+                <i class="bi bi-google"></i>
+                Continue with Google
+            </button>
+        </div>
+    </div>
+
+    <!-- </script> -->
+    <script type="module">
+        // Import the required Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB30DzqCiv-egnOXJlzjOUKJ0bJDQwyH-8",
+            authDomain: "zapgo-9be39.firebaseapp.com",
+            projectId: "zapgo-9be39",
+            storageBucket: "zapgo-9be39.appspot.com",
+            messagingSenderId: "662387982657",
+            appId: "1:662387982657:web:f8f928948c49864f2061c0"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app); // Initialize Firestore
+    
+        // Google Sign-In
+        const googleSignInButton = document.getElementById("googleSignIn");
+        googleSignInButton.addEventListener("click", async () => {
+            const provider = new GoogleAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+    
+                // Save the user's email to Firestore
+                const userDoc = doc(db, "users", user.uid); // Reference to Firestore document
+                await setDoc(userDoc, {
+                    email: user.email,
+                    displayName: user.displayName,
+                    createdAt: new Date().toISOString()
+                });
+    
+                // alert(`Welcome, ${user.displayName}! You are now signed in.`);
+                localStorage.setItem("userEmail", user.email);
+
+            // Redirect to the main page
+            window.location.href = "./main.html";
+                // Redirect or update the UI as needed
+            } catch (error) {
+                console.error("Google Sign-In Error:", error.message);
+                alert("An error occurred during sign-in. Please try again.");
+            }
+        });
+    </script>
+    
+    <script src="login.js"></script>
+</body>
+</html>

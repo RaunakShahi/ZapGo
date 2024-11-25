@@ -2,6 +2,24 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+.header {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Vertically center content */
+    position: fixed; /* Make it stick to the top */
+    top: 0; /* Align at the very top */
+    width: 100%; /* Stretch across the screen */
+    height: 60px; /* Height of the header */
+    padding: 0 40px; /* Add padding for spacing */
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+  
+  .logo {
+    font-size: 24px; /* Adjust text size */
+    font-weight: bold; /* Make it bold */
+}
+
 .primary-btn {
     background-color: #1fb800;
     color: white;

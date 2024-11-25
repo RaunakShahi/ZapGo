@@ -242,7 +242,8 @@ function showRouteDetails(stops) {
                         Charge Duration: ${stop.duration} mins
                     </p>
                 </div>
-                <button class="text-blue-500 text-sm hover:underline">Book</button>
+                    <!--Removing the individual book button for now as it doesnt work -->
+                    <!--<button class="text-blue-500 text-sm hover:underline">Book</button> -->
             </div>
         `;
         chargingStops.appendChild(stopElement);
