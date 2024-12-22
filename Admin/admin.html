@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapGo Admin Portal</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1 class="title">Admin Portal</h1>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li id="viewUsersTab" class="active">View Users</li>
+                <li id="manageStationsTab">Manage Charging Stations</li>
+                <li id="viewStatsTab">View Statistics</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <!-- View Users Tab -->
+            <div id="viewUsers" class="tab-content active">
+                <h2>Registered Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable">
+                        <!-- User data will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Manage Stations Tab -->
+            <div id="manageStations" class="tab-content">
+                <h2>Manage Charging Stations</h2>
+                <form id="addStationForm">
+                    <input type="text" id="stationName" placeholder="Station Name" required>
+                    <input type="text" id="stationLocation" placeholder="Location" required>
+                    <button type="submit">Add Station</button>
+                </form>
+                <h3>Send Notification</h3>
+                <form id="notificationForm">
+                    <select id="stationSelect" required>
+                        <option value="" disabled selected>Select a Charging Station</option>
+                        <!-- Stations will be dynamically populated here -->
+                    </select>
+                    <textarea id="notificationMessage" placeholder="Enter your message here..." rows="4" required></textarea>
+                    <button type="submit">Send Notification</button>
+                </form>
+                <ul id="stationsList">
+                    <!-- Station data will be dynamically added here -->
+                </ul>
+            </div>
+
+            <!-- View Statistics Tab -->
+            <div id="viewStats" class="tab-content">
+                <h2>Booking Statistics</h2>
+                <canvas id="statsChart"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

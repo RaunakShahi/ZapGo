@@ -1,0 +1,166 @@
+/* General Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
+
+/* Main Layout */
+.container {
+    display: flex;
+    height: calc(100vh - 64px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: black;
+    padding: 1rem 0;
+    height: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+.sidebar ul li.active {
+    background-color: #444;
+}
+
+.sidebar ul li:hover {
+    background-color: #555;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+form {
+    margin-bottom: 1rem;
+}
+
+form input, form button {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #1fb800;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #198f00;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+}
+
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+}
+
+form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #ff1a1a;
+}
